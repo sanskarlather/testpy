@@ -59,7 +59,7 @@ tree_test_R=accuracy_score(y_test,y_test_tree)
 
 print("Decision Tree: Accuracy on training Data: {:.3f}".format(tree_train_R))
 print("Decision Tree: Accuracy on test Data: {:.3f}".format(tree_test_R))
-result_S('Random Forest', tree_train_R, tree_test_R)
+result_S('Decision Tree', tree_train_R, tree_test_R)
 
 
 # ─── RANDOM FOREST CLASSIFER ────────────────────────────────────────────────────

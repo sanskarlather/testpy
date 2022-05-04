@@ -4,8 +4,7 @@ feat_N = ['Domain', 'Have_IP', 'Have_At', 'URL_Length', 'URL_Depth','Redirection
                       'https_Domain', 'TinyURL', 'Prefix/Suffix', 'DNS_Record', 'Web_Traffic', 
                       'Domain_Age', 'Domain_End', 'iFrame', 'Mouse_Over','Right_Click', 'Web_Forwards', 'Label']
 # ─── DATA COLLECTION ────────────────────────────────────────────────────────────
-Url = 'http://data.phishtank.com/data/online-valid.csv.gz'
-wget.download(Url)
+
 data_V = p.read_csv("online-valid.csv")
 print(data_V.head())
 data_B = p.read_csv("Benign_list_big_final.csv")
@@ -40,7 +39,7 @@ def featureExtraction(url,label):
   features.append(ext_TU(url))
   features.append(ext_PreSuf(url))
   
-  #Domain based features (4)
+  
   dns = 0
   try:
     domain_name = whois.whois(urlparse(url).netloc)
@@ -52,7 +51,7 @@ def featureExtraction(url,label):
   features.append(1 if dns == 1 else ext_Age(domain_name))
   features.append(1 if dns == 1 else domainEnd(domain_name))
   
-  # HTML & Javascript based features (4)
+  
   try:
     response = requests.get(url)
   except:
